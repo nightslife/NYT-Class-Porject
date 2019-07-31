@@ -21,7 +21,25 @@ $.ajax({
     method: "GET"
 }).then(function(res){
     console.log(res);
+    var count = $("#articleCount").val()
+    count = parseInt(count)
+    for(var i; i < count; i++) {
+        var displayArticleVariable = $("<a>").attr("href", res.docs[i].web_url).text(res.docs[i].headline.name);
+        console.log(displayArticleVariable);
+        $("#articleDisplay").append(displayArticleVariable);
+        
+    }
 
  
 });
 });
+$("#clearButton").on("click",function(){
+    $("#searchTermID").val("");
+    $("#endYearID").val("");
+    $("#startYearID").val("");
+})
+
+
+
+
+// parseInt($("#articleCount").find("option:selected").text())
