@@ -3,11 +3,18 @@ var searchTerms = "";
 var endYear = "";
 var startYear = "";
 
-var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"+startYear+"&"+endYear+"&q="
-+searchTerms+"&api-key="+yourkey;
 
+$("#searchButton").on("click", function() {
+    searchTerms = $("#searchTermID").text();
+    if($("#startYearID").text() !== ""){
+    startYear="begin_date="+$("#startYearID").text()+"0101";
+};
+    if($("#endYearID").text() !== ""){
+    startYear="end_date="+$("#endYearID").text()+"1232";
+};
 
-
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"
+    +startYear+"&"+endYear+"&q="+searchTerms+"&api-key="+yourkey;
 
 $.ajax({
     url:queryURL,
@@ -15,7 +22,6 @@ $.ajax({
 }).then(function(res){
     console.log(res);
 
-    // endYear="end_date="+#endYearID+"1231";
-    // startYear="begin_date="+#startYearID+"0101";
-})
-
+ 
+});
+});
