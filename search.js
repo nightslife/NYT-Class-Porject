@@ -11,9 +11,11 @@ $("#searchButton").on("click", function() {
     if($("#startYearID").val() !== ""){
     startYear="begin_date="+$("#startYearID").val()+"0101";
 };
+    console.log(startYear)
     if($("#endYearID").val() !== ""){
-    startYear="end_date="+$("#endYearID").val()+"1232";
+    endYear="end_date="+$("#endYearID").val()+"1231";
 };
+    
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"
     +startYear+"&"+endYear+"&q="+searchTerms+"&api-key="+yourkey;
